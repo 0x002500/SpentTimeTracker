@@ -1,0 +1,11 @@
+{
+	"required": true,
+	"package": "xyz.sortmc.spent_time_tracker.mixin",
+	"compatibilityLevel": "JAVA_21",
+	"mixins": [
+		"ExampleMixin"
+	],
+	"injectors": {
+		"defaultRequire": 1
+	}
+}
