@@ -12,23 +12,21 @@ data class UserCache(
     val expiresOn: String
 )
 
-class UuidToName {
-
-
+class NameToUuid {
     private fun readUserCache(): String {
         val fileName = "./usercache.json"
         return File(fileName).readText(Charsets.UTF_8)
     }
 
-    fun uuidToName(uuid: String): String? {
+    fun nameToUuid(name: String): String? {
         val originJson = readUserCache()
         val users: List<UserCache> = try {
             Json.decodeFromString(originJson)
         } catch (e: SerializationException) {
             return e.localizedMessage
         }
-        val user = users.find { it.uuid == uuid }
+        val user = users.find { it.name == name }
 
-        return user?.name
+        return user?.uuid
     }
 }
